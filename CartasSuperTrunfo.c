@@ -3,7 +3,7 @@
 int main(){
 
 /*Para cada carta adicionada ao jogo, suas variaveis devem seguir o padrão:
-(nome da variavel + numero sequêncial correspondente ao número da carta)
+nome da variavel + numero sequêncial
 utilizando a variavel "pib" como exemplo, ficaria:
 carta 1, pib1, carta 2, pib2,
 carta 3, pib3, ...*/
@@ -19,6 +19,9 @@ float area1;
 float pib1;
 int pontos1;
 
+
+
+
 //Variáveis da carta 2
 char estado2;
 char codigo2[4];
@@ -27,6 +30,9 @@ int populacao2;
 float area2;
 float pib2;
 int pontos2;
+
+
+
 
 //Entrada de Dados da carta 1
 
@@ -48,11 +54,26 @@ scanf("%d", &populacao1);
 printf("Área (em Km²): ");
 scanf("%f", &area1);
 
-printf("PIB (Em bilhões de reais): ");
+printf("PIB: ");
 scanf("%f", &pib1);
 
 printf("Número de pontos turísticos: ");
 scanf("%d", &pontos1);
+
+/*
+A densidade populacional é calculada utilizando o número da população dividido
+pela área em Km², neste caso, utilizamos o casting para float, por não se
+tratar de um número inteiro
+*/
+float densidade1 = (float) populacao1 / area1;
+
+/*
+PIB per capita é calculado utilizando o valor do PIB dividido pelo número
+da população da cidade, neste caso, utilizamos o casting para float, por não se
+tratar de um número inteiro
+*/
+float percapita1 = (float) pib1 / populacao1;
+
 
 //Exibição dos dados da carta 1
 
@@ -62,8 +83,13 @@ printf("Código: %s\n", codigo1);
 printf("Cidade: %s\n", cidade1);
 printf("População: %d\n", populacao1);
 printf("Área: %.2f Km²\n", area1);
-printf("PIB: %.2f Bilhões de Reais\n", pib1);
+printf("PIB: %.2f\n", pib1);
 printf("Pontos Turísticos: %d\n", pontos1);
+printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
+printf("PIB per capita: %.2f reais\n", percapita1);
+
+
+
 
 //Entrada de Dados da carta 2
 
@@ -84,12 +110,14 @@ scanf("%d", &populacao2);
 printf("Área (em Km²): ");
 scanf("%f", &area2);
 
-printf("PIB (Em bilhões de reais): ");
+printf("PIB: ");
 scanf("%f", &pib2);
 
 printf("Número de pontos turísticos: ");
 scanf("%d", &pontos2);
 
+float densidade2 = (float) populacao2 / area2;
+float percapita2 = (float) pib2 / populacao2;
 
 //Exibição dos dados da carta 2
 
@@ -101,6 +129,8 @@ printf("População: %d\n", populacao2);
 printf("Área: %.2f Km²\n", area2);
 printf("PIB: %.2f Bilhões de Reais\n", pib2);
 printf("Pontos Turísticos: %d\n", pontos2);
+printf("Densidade Populacional: %.2f hab/Km²\n", densidade2);
+printf("PIB per capita: %.2f\n", percapita2);
 
 return 0;
 
